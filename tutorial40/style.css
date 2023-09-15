@@ -1,0 +1,14 @@
+.slider{
+    display: flex;
+    justify-content: space-between;
+}
+.slider button{
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    background-color: blue;
+    align-items: center;
+}
+.slider img{
+    border: 1px solid black;
+    border-radius: 1.5rem;
+}
