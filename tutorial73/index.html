@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const student = [
+        {
+          id: 101,
+          name: "najmul",
+          gpa: 3.65,
+        },
+        {
+          id: 101,
+          name: "houda",
+          gpa: 3.0,
+        },
+        {
+          id: 101,
+          name: "mithu",
+          gpa: 4.0,
+        },
+        {
+          id: 101,
+          name: "najmul",
+          gpa: 2.65,
+        },
+      ];
+
+      function studentName() {
+        return student
+          .filter(function (item) {
+            return item.gpa > 3.0;
+          })
+          .map(function (item) {
+            return item.name;
+          });
+      }
+      console.log(studentName());
+
+      const studentName2 = () =>
+        student.filter((item) => item.gpa > 3.0).map((item) => item.name);
+
+      console.log(studentName2());
+    </script>
+  </body>
+</html>
