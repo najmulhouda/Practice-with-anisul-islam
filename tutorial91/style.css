@@ -1,0 +1,24 @@
+* {
+  border: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 1rem;
+}
+
+select {
+  margin: 0 1rem 1rem 0;
+}
+main {
+  background-color: aqua;
+  padding: 0.5rem;
+  font-size: 16px;
+}
+button {
+  margin: 0 1rem 1rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: chartreuse;
+}
