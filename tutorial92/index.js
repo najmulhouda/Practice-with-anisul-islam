@@ -1,8 +1,10 @@
+import { Todo } from "./Todo.js";
+
 // find the elements
-const container = document.querySelector(".container");
+
 const todoForm = document.querySelector(".todo-form");
 const todoInput = document.querySelector("#inputTodo");
-const todoAddButton = document.querySelector("#addTodoButton");
+
 const todoLists = document.querySelector("#lists");
 const messageElement = document.querySelector("#message");
 const checkbox = document.getElementById("check");
@@ -18,13 +20,13 @@ const showMessage = (text , status)=>{
 }
 
 //create todo
-const createTodo = (todoId,todoValue)=>{
+const createTodo = (newTodo)=>{
     const todoElement = document.createElement("li");
-    todoElement.id = todoId;
+    todoElement.id = newTodo.todoId;
     todoElement.classList.add("li-style");
     todoElement.innerHTML = `
     
-    <span><input type="checkbox" id="check" name="click" value= "save" style="height:20px; width:20px;padding:3rem; vertical-align: middle;"  >${ todoValue}</span>
+    <span><input type="checkbox" id="check" name="click" value= "save" style="height:20px; width:20px;padding:3rem; vertical-align: middle;"  >${ newTodo.todoValue}</span>
     <span><button class="btn" id="deleteButton"><i class="fa-solid fa-trash"></i></button></span>
     `;
     todoLists.appendChild(todoElement); 
@@ -63,14 +65,17 @@ const handleSubmit = (event)=>{
 
     //unique id
     const todoId = Date.now().toString();
+
+
+    const newTodo = new Todo(todoId , todoValue);
     
-    createTodo(todoId,todoValue );
+    createTodo(newTodo);
     showMessage("todo added successfully" , "success");
 
 
     // add to local storage
     const todos = getTodosFromLocalStorage();
-    todos.push({todoId , todoValue});
+    todos.push({newTodo});
     localStorage.setItem("mytodos" , JSON.stringify(todos)); 
     todoInput.value = "";
 }
@@ -78,7 +83,7 @@ const handleSubmit = (event)=>{
 const loadTodos = ()=>{
     const todos = getTodosFromLocalStorage();
     todos.map((todo)=>{
-        createTodo(todo.todoId , todo.todoValue);
+        createTodo(todo);
     })
 }
 // adding listeners
